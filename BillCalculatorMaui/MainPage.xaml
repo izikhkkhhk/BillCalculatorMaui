@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BillCalculator.MainPage">
+    <VerticalStackLayout Padding="20" Spacing="15" BackgroundColor="#121212">
+
+        <Label Text="TOTAL P/PERSON" TextColor="White" FontSize="22" FontAttributes="Bold" HorizontalOptions="Center"/>
+        <Label x:Name="totalLabel" Text="$0.00" TextColor="#00FFAA" FontSize="36" FontAttributes="Bold" HorizontalOptions="Center"/>
+
+        <Frame BackgroundColor="#2C2C2C" Padding="20" CornerRadius="10">
+            <Grid ColumnDefinitions="2*, 0.1*, 2*">
+                <!-- Левая часть (TOTAL P/PERSON) -->
+                <StackLayout Grid.Column="0" HorizontalOptions="Center">
+                    <Label Text="TOTAL P/PERSON"
+                   FontSize="14"
+                   TextColor="LightGray"
+                   HorizontalOptions="Center"/>
+                    <Label x:Name="totalLabel"
+                   Text="$0.00"
+                   FontSize="32"
+                   FontAttributes="Bold"
+                   TextColor="White"
+                   HorizontalOptions="Center"/>
+                </StackLayout>
+
+                <!-- Разделительная линия -->
+                <BoxView Grid.Column="1"
+                 BackgroundColor="Gray"
+                 WidthRequest="2"
+                 HeightRequest="50"
+                 VerticalOptions="Center"/>
+
+                <!-- Правая часть (SUBTOTAL & TIP) -->
+                <StackLayout Grid.Column="2" HorizontalOptions="End">
+                    <Label Text="SUBTOTAL"
+                   FontSize="14"
+                   TextColor="LightGray"
+                   HorizontalOptions="End"/>
+                    <Label x:Name="subtotalLabel"
+                   Text="$0.00"
+                   FontSize="18"
+                   FontAttributes="Bold"
+                   TextColor="White"
+                   HorizontalOptions="End"/>
+
+                    <Label Text="TIP"
+                   FontSize="14"
+                   TextColor="LightGray"
+                   Margin="0,10,0,0"
+                   HorizontalOptions="End"/>
+                    <Label x:Name="tipLabel"
+                   Text="$0.00"
+                   FontSize="18"
+                   FontAttributes="Bold"
+                   TextColor="White"
+                   HorizontalOptions="End"/>
+                </StackLayout>
+            </Grid>
+        </Frame>
+
+        <Entry x:Name="billEntry" Placeholder="Enter your bill: $0.0" TextChanged="OnBillAmountChanged" Keyboard="Numeric" BackgroundColor="White" TextColor="Black" FontSize="18"/>
+
+        <Label Text="Choose your tip" TextColor="White" FontSize="18"/>
+        <HorizontalStackLayout Spacing="10">
+            <Button Text="10%" Clicked="OnTipPercentageChanged" BackgroundColor="#6200EA" TextColor="White" FontSize="16" Padding="10"/>
+            <Button Text="15%" Clicked="OnTipPercentageChanged" BackgroundColor="#6200EA" TextColor="White" FontSize="16" Padding="10"/>
+            <Button Text="20%" Clicked="OnTipPercentageChanged" BackgroundColor="#6200EA" TextColor="White" FontSize="16" Padding="10"/>
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
+            <Label Text="Tip:" TextColor="White" FontSize="16"/>
+            <Label x:Name="tipPercentageLabel" Text="0%" TextColor="#00FFAA" FontSize="16"/>
+        </HorizontalStackLayout>
+
+        <Slider x:Name="tipSlider" Minimum="0" Maximum="50" ValueChanged="OnSliderChanged" MinimumTrackColor="#6200EA" MaximumTrackColor="#333333"/>
+
+        <Label Text="Split the total" TextColor="White" FontSize="18"/>
+        <HorizontalStackLayout Spacing="10">
+            <Button Text="-" Clicked="OnPeopleCountChanged" BackgroundColor="#6200EA" TextColor="White" FontSize="18" Padding="10"/>
+            <Label x:Name="peopleLabel" Text="1" TextColor="White" FontSize="20"/>
+            <Button Text="+" Clicked="OnPeopleCountChanged" BackgroundColor="#6200EA" TextColor="White" FontSize="18" Padding="10"/>
+        </HorizontalStackLayout>
+
+    </VerticalStackLayout>
+</ContentPage>
