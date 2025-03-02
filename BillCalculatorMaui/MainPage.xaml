@@ -4,9 +4,6 @@
              x:Class="BillCalculator.MainPage">
     <VerticalStackLayout Padding="20" Spacing="15" BackgroundColor="#121212">
 
-        <Label Text="TOTAL P/PERSON" TextColor="White" FontSize="22" FontAttributes="Bold" HorizontalOptions="Center"/>
-        <Label x:Name="totalLabel" Text="$0.00" TextColor="#00FFAA" FontSize="36" FontAttributes="Bold" HorizontalOptions="Center"/>
-
         <Frame BackgroundColor="#2C2C2C" Padding="20" CornerRadius="10">
             <Grid ColumnDefinitions="2*, 0.1*, 2*">
                 <!-- Левая часть (TOTAL P/PERSON) -->
@@ -57,7 +54,6 @@
                 </StackLayout>
             </Grid>
         </Frame>
-
         <Entry x:Name="billEntry" Placeholder="Enter your bill: $0.0" TextChanged="OnBillAmountChanged" Keyboard="Numeric" BackgroundColor="White" TextColor="Black" FontSize="18"/>
 
         <Label Text="Choose your tip" TextColor="White" FontSize="18"/>
